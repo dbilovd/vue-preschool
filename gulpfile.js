@@ -1,6 +1,7 @@
 var
     gulp = require('gulp'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    browserify = require('gulp-browserify');
 
 
 var io = {
@@ -24,5 +25,12 @@ gulp.task("sass", function () {
 
 
 gulp.task('watch', ['sass'], function () {
-    gulp.watch(css.watch, ['sass']);
+    gulp.watch(css.watch, [ 'sass', 'browserify' ]);
+    gulp.watch("app/**/*.js", [ "browserify", "sass" ]);
+});
+
+gulp.task("browserify", function () {
+    gulp.src("app/index.js")
+        .pipe(browserify({}))
+        .pipe(gulp.dest(io.dest + "/"));
 });

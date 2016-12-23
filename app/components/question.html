@@ -1,0 +1,21 @@
+<div className = 'question'>
+    <p className = 'question__heading'>{{ this.props.question.question }}</p>
+
+    <div className = 'question__image-holder'>
+        <div className = 'question__explanation clearfix'>
+            <p>{{ this.props.question.explanation }}</p>
+            <button className = 'question__explanation-close circular right'>OK!</button>
+        </div>
+        
+        <img className='question__image' style ="{{ imageEnterAnimation }}"" src="{{ this.props.question.resource.url }} " />
+    </div>
+
+    <ul className = 'question__otpion-list no-bullet clearfix'>
+        <li className='question__option-item'
+            onClick ="{() =>  this.props.checkAnswer(option)}"
+            v-for="option in options"
+            >
+            {{ option }}
+        </li>
+    </ul>
+</div>

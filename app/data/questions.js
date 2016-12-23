@@ -1,4 +1,4 @@
-let questions = [
+var questions = [
     {
         id: 1,
         question: 'What fruit is this?',
@@ -56,4 +56,4 @@ let questions = [
     }
 ];
 
-export { questions };
+module.exports = questions;
